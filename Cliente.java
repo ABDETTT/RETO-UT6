@@ -7,24 +7,7 @@ public class Cliente {
     private String dni;
     private String apellido1;
     private String apellido2;
-    private String direccion;
-
-    
-    /** 
-     * @param args
-     */
-    public static void main(String[] args) {
-        
-        Scanner sc = new Scanner(System.in);
-
-        Cliente cliente1 = new Cliente(null, 0, null, null, null, null);
-
-        cliente1.meterDatos(sc);
-        cliente1.verInfo();
-
-    }
-
-    
+    private String direccion;    
 
     public Cliente(String nombre, int edad, String dni, String apellido1, String apellido2, String direccion) {
 
@@ -85,7 +68,7 @@ public class Cliente {
         this.direccion = direccion;
     }
 
-    public void meterDatos (Scanner sc){
+    public static void meterDatos (Scanner sc){
 
         System.out.println("Introduce tu Nombre: ");
         this.nombre = sc.nextLine();
@@ -105,7 +88,7 @@ public class Cliente {
 
     }
     
-    public void verInfo(){
+    public static void verInfo(){
         System.out.println("Datos de cliente");
         System.out.println();
         System.out.println("Nombre: "+this.nombre+", Apellido1: "+this.apellido1+", Apellido2: "+this.apellido2+", DNI: "+this.dni+", Edad: "+this.edad);

@@ -19,12 +19,5 @@ public class Coche {
         Extras = extras;
     }
 
-    protected void cochesDisponibles(Scanner sc){
-        System.out.println("Elige uno de los siguientes coches disponibles del stock: ");
-        System.out.println("1. "+coche1);
-        System.out.println("2. "+coche2);
-        System.out.println("3. "+coche3);
-        int cocheselec = sc.nextInt();
-        
-    }
+    
 }
