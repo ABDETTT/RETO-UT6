@@ -8,7 +8,6 @@ public class Coche {
     private String modelo; // Modelo del coche(Ibiza, Corolla, Leon...).
     private String categoria; // Categoria del coche(Súv, Coupe, Todoterreno...).
     private CaracteristicasCoche caracteristicas; // Caracteristicas del coche(Color, Motorización, Transmision...).
-    private ExtrasCoche extras; // Extras que llevara el vehiculo.
     
     public static double precioCoche=0;
 
@@ -19,7 +18,6 @@ public class Coche {
         this.modelo = modelo;
         this.categoria = categoria;
         this.caracteristicas = caracteristicas;
-        this.extras = extras;
     }
 
     protected void configurarCoche(){

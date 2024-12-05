@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class Cliente {
-    
+
     private String nombre;
     private int edad;
     private String dni;
@@ -9,12 +9,10 @@ public class Cliente {
     private String apellido2;
     private String direccion;
 
-    
-    /** 
+    /**
      * @param args
      */
     public static void main(String[] args) {
-        
         Scanner sc = new Scanner(System.in);
 
         Cliente cliente1 = new Cliente(null, 0, null, null, null, null);
@@ -24,10 +22,7 @@ public class Cliente {
 
     }
 
-    
-
     public Cliente(String nombre, int edad, String dni, String apellido1, String apellido2, String direccion) {
-
         this.nombre = nombre;
         this.edad = edad;
         this.dni = dni;
@@ -85,8 +80,7 @@ public class Cliente {
         this.direccion = direccion;
     }
 
-    public void meterDatos (Scanner sc){
-
+    public void meterDatos(Scanner sc) {
         System.out.println("Introduce tu Nombre: ");
         this.nombre = sc.nextLine();
 
@@ -94,7 +88,7 @@ public class Cliente {
         this.apellido1 = sc.nextLine();
 
         System.out.println("Introduce tu segundo appellido");
-        this.apellido2 =sc.nextLine();
+        this.apellido2 = sc.nextLine();
 
         System.out.println("Introduce tu dni: ");
         this.dni = sc.nextLine();
@@ -102,13 +96,12 @@ public class Cliente {
         System.out.println("Introduce tu edad: ");
         this.edad = sc.nextInt();
         System.out.println();
-
     }
-    
-    public void verInfo(){
+
+    public void verInfo() {
         System.out.println("Datos de cliente");
         System.out.println();
-        System.out.println("Nombre: "+this.nombre+", Apellido1: "+this.apellido1+", Apellido2: "+this.apellido2+", DNI: "+this.dni+", Edad: "+this.edad);
+        System.out.println("Nombre: " + this.nombre + ", Apellido1: " + this.apellido1 + ", Apellido2: "
+                + this.apellido2 + ", DNI: " + this.dni + ", Edad: " + this.edad);
     }
-    
 }
