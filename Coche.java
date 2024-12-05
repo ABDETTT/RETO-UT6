@@ -7,17 +7,32 @@ public class Coche {
     private String marca; // Marca del coche(Kia, Mercedes, Bmw...).
     private String modelo; // Modelo del coche(Ibiza, Corolla, Leon...).
     private String categoria; // Categoria del coche(Súv, Coupe, Todoterreno...).
-    private String [] Características; // Caracteristicas del coche(Color, Motorización, Transmision...).
-    private boolean [] Extras; // Extras que llevara el vehiculo.
+    private CaracteristicasCoche caracteristicas; // Caracteristicas del coche(Color, Motorización, Transmision...).
+    private ExtrasCoche extras; // Extras que llevara el vehiculo.
+    
+    public static double precioCoche=0;
 
-    public Coche(int id, String marca, String modelo, String categoria, String[] características, boolean[] extras) {
+    public Coche(int id, String marca, String modelo, String categoria, CaracteristicasCoche caracteristicas,
+            ExtrasCoche extras) {
         this.id = id;
         this.marca = marca;
         this.modelo = modelo;
         this.categoria = categoria;
-        Características = características;
-        Extras = extras;
+        this.caracteristicas = caracteristicas;
+        this.extras = extras;
     }
 
-    
+    protected void configurarCoche(){
+        precioCoche =+ caracteristicas.getprecioCocheCarac();
+    }
+
+    private void resumenCoche(){
+        System.out.println("\nResumen del coche configurado:");
+        System.out.println("Id: "+id);
+        System.out.println("Marca: "+marca);
+        System.out.println("Modelo: "+modelo);
+        System.out.println("Categoria: "+categoria);
+        System.out.println("Características: "+caracteristicas);
+        System.out.println("Precio total: "+precioCoche);
+    }
 }
