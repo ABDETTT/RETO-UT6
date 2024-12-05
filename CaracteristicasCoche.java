@@ -3,25 +3,24 @@ import java.util.Scanner;
 public class CaracteristicasCoche {
     public static Scanner sc = new Scanner(System.in);
 
-    private String[] arrayCaracterísticas = { "Color", "Transmision", "Motorizacion" };
-    private String[] coloresDisponibles = { "Rojo", "Negro", "Azul", "Amarillo", "Blanco" };
-    private double[] precioColor = { 1500, 2500, 3000, 5000, 2500 };
-    private String[] transmisionDisponibles = { "Manual", "Automatica" };
-    private double[] precioTransmision = { 10000, 15000 };
-    private String[] motorizaciónDisponible = { "Gasolina", "Gasoil", "Hibrido", "Electrico" };
-    private double[] precioMotorizacion = { 12000, 11000, 15000, 20000 };
-    private String[] arrayCaracterísticasSelec = new String[arrayCaracterísticas.length];
-    private double precioCocheCarac=0;
+    private static String[] arrayCaracterísticas = { "Color", "Transmision", "Motorizacion" };
+    private static String[] coloresDisponibles = { "Rojo", "Negro", "Azul", "Amarillo", "Blanco" };
+    private static double[] precioColor = { 1500, 2500, 3000, 5000, 2500 };
+    private static String[] transmisionDisponibles = { "Manual", "Automatica" };
+    private static double[] precioTransmision = { 10000, 15000 };
+    private static String[] motorizaciónDisponible = { "Gasolina", "Gasoil", "Hibrido", "Electrico" };
+    private static double[] precioMotorizacion = { 12000, 11000, 15000, 20000 };
+    private static String[] arrayCaracterísticasSelec = new String[arrayCaracterísticas.length];
+    private static double precioCocheCarac=0;
 
-    public CaracteristicasCoche(String[] arrayCaracterísticas, String[] coloresDisponibles,
-            String[] transmisionDisponibles, String[] motorizaciónDisponible) {
+    public CaracteristicasCoche(String[] arrayCaracterísticas, String[] coloresDisponibles,String[] transmisionDisponibles, String[] motorizaciónDisponible) {
         this.arrayCaracterísticas = arrayCaracterísticas;
         this.coloresDisponibles = coloresDisponibles;
         this.transmisionDisponibles = transmisionDisponibles;
         this.motorizaciónDisponible = motorizaciónDisponible;
     }
 
-    protected void solicitarCaracterísticas(Scanner sc) {
+    protected static void solicitarCaracterísticas(Scanner sc) {
         int n = 0;
         int opcionSelec;
 

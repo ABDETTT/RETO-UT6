@@ -1,13 +1,15 @@
 import java.util.Scanner;
 
+import javax.print.DocFlavor.STRING;
+
 public class Cliente {
     
-    private String nombre;
-    private int edad;
-    private String dni;
-    private String apellido1;
-    private String apellido2;
-    private String direccion;    
+    private static String nombre;
+    private static int edad;
+    private static String dni;
+    private static String apellido1;
+    private static String apellido2;
+    private static String direccion;    
 
     public Cliente(String nombre, int edad, String dni, String apellido1, String apellido2, String direccion) {
 
@@ -71,19 +73,19 @@ public class Cliente {
     public static void meterDatos (Scanner sc){
 
         System.out.println("Introduce tu Nombre: ");
-        this.nombre = sc.nextLine();
+        nombre = sc.nextLine();
 
         System.out.println("Introduce tu primer apellido");
-        this.apellido1 = sc.nextLine();
+        apellido1 = sc.nextLine();
 
         System.out.println("Introduce tu segundo appellido");
-        this.apellido2 =sc.nextLine();
+        apellido2 =sc.nextLine();
 
         System.out.println("Introduce tu dni: ");
-        this.dni = sc.nextLine();
+        dni = sc.nextLine();
 
         System.out.println("Introduce tu edad: ");
-        this.edad = sc.nextInt();
+        edad = sc.nextInt();
         System.out.println();
 
     }
@@ -91,7 +93,7 @@ public class Cliente {
     public static void verInfo(){
         System.out.println("Datos de cliente");
         System.out.println();
-        System.out.println("Nombre: "+this.nombre+", Apellido1: "+this.apellido1+", Apellido2: "+this.apellido2+", DNI: "+this.dni+", Edad: "+this.edad);
+        System.out.println("Nombre: "+nombre+", Apellido1: "+apellido1+", Apellido2: "+apellido2+", DNI: "+dni+", Edad: "+edad);
     }
     
 }
