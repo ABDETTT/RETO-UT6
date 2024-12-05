@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+import javax.print.DocFlavor.STRING;
+
 public class Cliente {
 
     private String nombre;
@@ -82,19 +84,19 @@ public class Cliente {
 
     public void meterDatos(Scanner sc) {
         System.out.println("Introduce tu Nombre: ");
-        this.nombre = sc.nextLine();
+        nombre = sc.nextLine();
 
         System.out.println("Introduce tu primer apellido");
-        this.apellido1 = sc.nextLine();
+        apellido1 = sc.nextLine();
 
         System.out.println("Introduce tu segundo appellido");
         this.apellido2 = sc.nextLine();
 
         System.out.println("Introduce tu dni: ");
-        this.dni = sc.nextLine();
+        dni = sc.nextLine();
 
         System.out.println("Introduce tu edad: ");
-        this.edad = sc.nextInt();
+        edad = sc.nextInt();
         System.out.println();
     }
 

@@ -20,17 +20,120 @@ public class Coche {
         this.caracteristicas = caracteristicas;
     }
 
+    
+
+    public Scanner getSc() {
+        return sc;
+    }
+
+
+
+    public void setSc(Scanner sc) {
+        this.sc = sc;
+    }
+
+
+
+    public int getId() {
+        return id;
+    }
+
+
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+
+
+    public String getMarca() {
+        return marca;
+    }
+
+
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
+
+
+    public String getModelo() {
+        return modelo;
+    }
+
+
+
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
+    }
+
+
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+
+
+    public CaracteristicasCoche getCaracteristicas() {
+        return caracteristicas;
+    }
+
+
+
+    public void setCaracteristicas(CaracteristicasCoche caracteristicas) {
+        this.caracteristicas = caracteristicas;
+    }
+
+
+
+    public ExtrasCoche getExtras() {
+        return extras;
+    }
+
+
+
+    public void setExtras(ExtrasCoche extras) {
+        this.extras = extras;
+    }
+
+
+
+    public static double getPrecioCoche() {
+        return precioCoche;
+    }
+
+
+
+    public static void setPrecioCoche(double precioCoche) {
+        Coche.precioCoche = precioCoche;
+    }
+
+
+
     protected void configurarCoche(){
         precioCoche =+ caracteristicas.getprecioCocheCarac();
     }
 
-    private void resumenCoche(){
-        System.out.println("\nResumen del coche configurado:");
-        System.out.println("Id: "+id);
-        System.out.println("Marca: "+marca);
-        System.out.println("Modelo: "+modelo);
-        System.out.println("Categoria: "+categoria);
-        System.out.println("Características: "+caracteristicas);
-        System.out.println("Precio total: "+precioCoche);
+    private void meterDatosCoche(){
+
+        System.out.println("Introduce la Marca que quieras(Toyota, Ferrai, Porsche )");
+        marca = sc.nextLine();
+        System.out.println("Introduce el modelo del coche (Corolla, Roma, Panamera)");
+        modelo = sc.nextLine();
+        System.out.println("Introduce la categoria");
+        categoria = sc.nextLine();
+        solicitarCaracterísticas();
+    }
+
+    protected void resumenCoche(){
+        System.out.println("\nResumen del coche configurado: Id: "+id+"Marca: "+marca+"Modelo: "+modelo+"Categoria: "+categoria+"Características: "+caracteristicas+"Precio total: "+precioCoche);
     }
 }
