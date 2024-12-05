@@ -3,15 +3,15 @@ import java.util.Scanner;
 public class CaracteristicasCoche {
     public static Scanner sc = new Scanner(System.in);
 
-    private String[] arrayCaracteristicas = { "Color", "Transmision", "Motorizacion" };
-    private String[] coloresDisponibles = { "Rojo", "Negro", "Azul", "Amarillo", "Blanco" };
-    private double[] precioColor = { 1500, 2500, 3000, 5000, 2500 };
-    private String[] transmisionDisponibles = { "Manual", "Automatica" };
-    private double[] precioTransmision = { 10000, 15000 };
-    private String[] motorizacionDisponible = { "Gasolina", "Gasoil", "Hibrido", "Electrico" };
-    private double[] precioMotorizacion = { 12000, 11000, 15000, 20000 };
-    private String[] arrayCaracteristicasSelec = new String[arrayCaracteristicas.length];
-    private double precioCocheCarac=0;
+    private static String[] arrayCaracteristicas = { "Color", "Transmision", "Motorizacion" };
+    private static String[] coloresDisponibles = { "Rojo", "Negro", "Azul", "Amarillo", "Blanco" };
+    private static double[] precioColor = { 1500, 2500, 3000, 5000, 2500 };
+    private static String[] transmisionDisponibles = { "Manual", "Automatica" };
+    private static double[] precioTransmision = { 10000, 15000 };
+    private static String[] motorizacionDisponible = { "Gasolina", "Gasoil", "Hibrido", "Electrico" };
+    private static double[] precioMotorizacion = { 12000, 11000, 15000, 20000 };
+    private static String[] arrayCaracteristicasSelec = new String[arrayCaracteristicas.length];
+    private static double precioCocheCarac=0;
 
     public CaracteristicasCoche(String[] arrayCaracteristicas, String[] coloresDisponibles,
             String[] transmisionDisponibles, String[] motorizacionDisponible) {
@@ -21,7 +21,13 @@ public class CaracteristicasCoche {
         this.motorizacionDisponible = motorizacionDisponible;
     }
 
-    protected void solicitarCaracterísticas(Scanner sc) {
+    public static void main(String[] args) {
+        solicitarCaracterísticas(sc);
+        imprimirCaracteristicas();
+
+    }
+
+    protected static void solicitarCaracterísticas(Scanner sc) {
         int n = 0;
         int opcionSelec;
 
@@ -95,7 +101,7 @@ public class CaracteristicasCoche {
         } 
     }
 
-    protected void imprimirCaracteristicas(){
+    protected static void imprimirCaracteristicas(){
         System.out.print("\nCaracterísticas seleccionadas: ");
 
         for (int i = 0; i < arrayCaracteristicas.length; i++) {
