@@ -23,55 +23,37 @@ public class Coche {
         return id;
     }
 
-
-
     public void setId(int id) {
         this.id = id;
     }
-
-
 
     public String getMarca() {
         return marca;
     }
 
-
-
     public void setMarca(String marca) {
         this.marca = marca;
     }
-
-
 
     public String getModelo() {
         return modelo;
     }
 
-
-
     public void setModelo(String modelo) {
         this.modelo = modelo;
     }
-
-
 
     public String getCategoria() {
         return categoria;
     }
 
-
-
     public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
 
-
-
     public CaracteristicasCoche getCaracteristicas() {
         return caracteristicas;
     }
-
-
 
     public void setCaracteristicas(CaracteristicasCoche caracteristicas) {
         this.caracteristicas = caracteristicas;
@@ -81,20 +63,17 @@ public class Coche {
         return precioCoche;
     }
 
-
-
     public static void setPrecioCoche(double precioCoche) {
         Coche.precioCoche = precioCoche;
     }
 
-
-
-    protected void configurarCoche(){
-        precioCoche =+ caracteristicas.getprecioCocheCarac();
+    protected void configurarCoche() {
+        precioCoche = +caracteristicas.getprecioCocheCarac();
     }
 
 
-    protected void resumenCoche(){
-        System.out.println("\nResumen del coche configurado: Id: "+id+"Marca: "+marca+"Modelo: "+modelo+"Categoria: "+categoria+"Características: "+caracteristicas+"Precio total: "+precioCoche);
+    protected void resumenCoche() {
+        System.out.println("\nResumen del coche configurado: Id: " + id + "Marca: " + marca + "Modelo: " + modelo
+                + "Categoria: " + categoria + "Características: " + caracteristicas + "Precio total: " + precioCoche);
     }
 }

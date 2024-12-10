@@ -2,7 +2,6 @@ import java.util.Scanner;
 
 public class CocheMain {
     public static void main(String[] args) {
-        
         Scanner sc = new Scanner(System.in);
 
         Cliente cliente1 = new Cliente();
@@ -53,15 +52,14 @@ public class CocheMain {
                         } while (opcion2 != 4);
 
                     break;
-            
+
                 default:
-                        System.out.println("Opcion invalida");
+                    System.out.println("Opcion invalida");
                     break;
             }
 
         } while (opcion != 2);
 
-        
     }
 
     public static void meterDatos(Scanner sc, Cliente cliente1) {

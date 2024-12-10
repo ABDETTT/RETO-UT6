@@ -1,17 +1,17 @@
 import java.util.Scanner;
 
 public class CaracteristicasCoche {
-    public static Scanner sc = new Scanner(System.in);
+    public Scanner sc = new Scanner(System.in);
 
-    private static String[] arrayCaracteristicas = { "Color", "Transmision", "Motorizacion" };
-    private static String[] coloresDisponibles = { "Rojo", "Negro", "Azul", "Amarillo", "Blanco" };
-    private static double[] precioColor = { 1500, 2500, 3000, 5000, 2500 };
-    private static String[] transmisionDisponibles = { "Manual", "Automatica" };
-    private static double[] precioTransmision = { 10000, 15000 };
-    private static String[] motorizacionDisponible = { "Gasolina", "Gasoil", "Hibrido", "Electrico" };
-    private static double[] precioMotorizacion = { 12000, 11000, 15000, 20000 };
-    private static String[] arrayCaracteristicasSelec = new String[arrayCaracteristicas.length];
-    private static double precioCocheCarac=0;
+    private String[] arrayCaracteristicas = { "Color", "Transmision", "Motorizacion" };
+    private String[] coloresDisponibles = { "Rojo", "Negro", "Azul", "Amarillo", "Blanco" };
+    private double[] precioColor = { 1500, 2500, 3000, 5000, 2500 };
+    private String[] transmisionDisponibles = { "Manual", "Automatica" };
+    private double[] precioTransmision = { 10000, 15000 };
+    private String[] motorizacionDisponible = { "Gasolina", "Gasoil", "Hibrido", "Electrico" };
+    private double[] precioMotorizacion = { 12000, 11000, 15000, 20000 };
+    private String[] arrayCaracteristicasSelec = new String[arrayCaracteristicas.length];
+    private double precioCocheCarac = 0;
 
     public CaracteristicasCoche(String[] arrayCaracteristicas, String[] coloresDisponibles,
             String[] transmisionDisponibles, String[] motorizacionDisponible) {
@@ -21,13 +21,7 @@ public class CaracteristicasCoche {
         this.motorizacionDisponible = motorizacionDisponible;
     }
 
-    public static void main(String[] args) {
-        solicitarCaracterísticas(sc);
-        imprimirCaracteristicas();
-
-    }
-
-    protected static void solicitarCaracterísticas(Scanner sc) {
+    protected void solicitarCaracterísticas(Scanner sc) {
         int n = 0;
         int opcionSelec;
 
@@ -39,7 +33,7 @@ public class CaracteristicasCoche {
                 int n1 = 0;
 
                 for (int j = 0; j < coloresDisponibles.length; j++) {
-                    System.out.println(j + 1 + ". " + coloresDisponibles[j] + " " + precioColor[j]);
+                    System.out.println(j + 1 + ". " + coloresDisponibles[j] + " " + precioColor[j] + "$");
                 }
 
                 do {
@@ -51,16 +45,16 @@ public class CaracteristicasCoche {
                     opcionSelec = sc.nextInt();
 
                     n1++;
-                } while (opcionSelec>coloresDisponibles.length || opcionSelec<1);
+                } while (opcionSelec > coloresDisponibles.length || opcionSelec < 1);
 
                 arrayCaracteristicasSelec[i] = coloresDisponibles[opcionSelec - 1];
-                precioCocheCarac = +precioColor[opcionSelec - 1];
+                precioCocheCarac += precioColor[opcionSelec - 1];
 
             } else if (n == 1) {
                 int n1 = 0;
 
                 for (int j = 0; j < transmisionDisponibles.length; j++) {
-                    System.out.println(j + 1 + ". " + transmisionDisponibles[j] + " " + precioTransmision[j]);
+                    System.out.println(j + 1 + ". " + transmisionDisponibles[j] + " " + precioTransmision[j] + "$");
                 }
 
                 do {
@@ -72,16 +66,16 @@ public class CaracteristicasCoche {
                     opcionSelec = sc.nextInt();
 
                     n1++;
-                } while (opcionSelec>transmisionDisponibles.length || opcionSelec<1);
+                } while (opcionSelec > transmisionDisponibles.length || opcionSelec < 1);
 
                 arrayCaracteristicasSelec[i] = transmisionDisponibles[opcionSelec - 1];
-                precioCocheCarac = +precioTransmision[opcionSelec - 1];
+                precioCocheCarac += precioTransmision[opcionSelec - 1];
 
             } else {
                 int n1 = 0;
 
                 for (int j = 0; j < motorizacionDisponible.length; j++) {
-                    System.out.println(j + 1 + ". " + motorizacionDisponible[j] + " " + precioMotorizacion[j]);
+                    System.out.println(j + 1 + ". " + motorizacionDisponible[j] + " " + precioMotorizacion[j] + "$");
                 }
 
                 do {
@@ -93,15 +87,15 @@ public class CaracteristicasCoche {
                     opcionSelec = sc.nextInt();
 
                     n1++;
-                } while (opcionSelec>motorizacionDisponible.length || opcionSelec<1);
-                
+                } while (opcionSelec > motorizacionDisponible.length || opcionSelec < 1);
+
                 arrayCaracteristicasSelec[i] = motorizacionDisponible[opcionSelec - 1];
-                precioCocheCarac = +precioMotorizacion[opcionSelec - 1];
+                precioCocheCarac += precioMotorizacion[opcionSelec - 1];
             }
-        } 
+        }
     }
 
-    protected static void imprimirCaracteristicas(){
+    protected void imprimirCaracteristicas() {
         System.out.print("\nCaracterísticas seleccionadas: ");
 
         for (int i = 0; i < arrayCaracteristicas.length; i++) {
@@ -112,13 +106,7 @@ public class CaracteristicasCoche {
         }
     }
 
-    protected double getprecioCocheCarac(){ 
+    protected double getprecioCocheCarac() {
         return precioCocheCarac;
     }
-
-    public static void verCoches() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'verCoches'");
-    }
-
 }
