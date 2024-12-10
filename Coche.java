@@ -1,7 +1,4 @@
-import java.util.Scanner;
-
 public class Coche {
-    public Scanner sc = new Scanner(System.in);
 
     private int id; // Numero para identificar el coche.
     private String marca; // Marca del coche(Kia, Mercedes, Bmw...).
@@ -11,27 +8,15 @@ public class Coche {
     
     public static double precioCoche=0;
 
-    public Coche(int id, String marca, String modelo, String categoria, CaracteristicasCoche caracteristicas,
-            ExtrasCoche extras) {
+    
+
+    public Coche(int id, String marca, String modelo, String categoria, CaracteristicasCoche caracteristicas) {
         this.id = id;
         this.marca = marca;
         this.modelo = modelo;
         this.categoria = categoria;
         this.caracteristicas = caracteristicas;
     }
-
-    
-
-    public Scanner getSc() {
-        return sc;
-    }
-
-
-
-    public void setSc(Scanner sc) {
-        this.sc = sc;
-    }
-
 
 
     public int getId() {
@@ -92,20 +77,6 @@ public class Coche {
         this.caracteristicas = caracteristicas;
     }
 
-
-
-    public ExtrasCoche getExtras() {
-        return extras;
-    }
-
-
-
-    public void setExtras(ExtrasCoche extras) {
-        this.extras = extras;
-    }
-
-
-
     public static double getPrecioCoche() {
         return precioCoche;
     }
@@ -122,16 +93,6 @@ public class Coche {
         precioCoche =+ caracteristicas.getprecioCocheCarac();
     }
 
-    private void meterDatosCoche(){
-
-        System.out.println("Introduce la Marca que quieras(Toyota, Ferrai, Porsche )");
-        marca = sc.nextLine();
-        System.out.println("Introduce el modelo del coche (Corolla, Roma, Panamera)");
-        modelo = sc.nextLine();
-        System.out.println("Introduce la categoria");
-        categoria = sc.nextLine();
-        solicitarCaracterísticas();
-    }
 
     protected void resumenCoche(){
         System.out.println("\nResumen del coche configurado: Id: "+id+"Marca: "+marca+"Modelo: "+modelo+"Categoria: "+categoria+"Características: "+caracteristicas+"Precio total: "+precioCoche);

@@ -116,4 +116,9 @@ public class CaracteristicasCoche {
         return precioCocheCarac;
     }
 
+    public static void verCoches() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'verCoches'");
+    }
+
 }

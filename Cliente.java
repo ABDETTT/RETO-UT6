@@ -14,15 +14,7 @@ public class Cliente {
     /**
      * @param args
      */
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
 
-        Cliente cliente1 = new Cliente(null, 0, null, null, null, null);
-
-        cliente1.meterDatos(sc);
-        cliente1.verInfo();
-
-    }
 
     public Cliente(String nombre, int edad, String dni, String apellido1, String apellido2, String direccion) {
         this.nombre = nombre;
@@ -32,6 +24,10 @@ public class Cliente {
         this.apellido2 = apellido2;
         this.direccion = direccion;
 
+    }
+
+    public Cliente() {
+        //TODO Auto-generated constructor stub
     }
 
     public String getNombre() {
@@ -80,24 +76,6 @@ public class Cliente {
 
     public void setDireccion(String direccion) {
         this.direccion = direccion;
-    }
-
-    public void meterDatos(Scanner sc) {
-        System.out.println("Introduce tu Nombre: ");
-        nombre = sc.nextLine();
-
-        System.out.println("Introduce tu primer apellido");
-        apellido1 = sc.nextLine();
-
-        System.out.println("Introduce tu segundo appellido");
-        this.apellido2 = sc.nextLine();
-
-        System.out.println("Introduce tu dni: ");
-        dni = sc.nextLine();
-
-        System.out.println("Introduce tu edad: ");
-        edad = sc.nextInt();
-        System.out.println();
     }
 
     public void verInfo() {

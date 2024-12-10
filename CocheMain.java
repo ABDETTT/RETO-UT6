@@ -5,10 +5,13 @@ public class CocheMain {
         
         Scanner sc = new Scanner(System.in);
 
-        Cliente cliente1 = new Cliente("abde", 22, "4170sfs34", "Hajji", "Hajji", "Calle donado");
+        Cliente cliente1 = new Cliente();
+        GestorConcesionario concesionario1 = new GestorConcesionario();
+
+        verMenu(sc, cliente1, concesionario1);
     }
 
-    public void verMenu(Scanner sc){
+    public static void verMenu(Scanner sc, Cliente cliente1, GestorConcesionario concesionario1){
         int opcion = 0;
         int opcion2 = 0;
 
@@ -21,11 +24,11 @@ public class CocheMain {
 
             switch (opcion) {
                 case 1:
-                       
-                        meterDatos(sc);
+                    
+                        meterDatos(sc, cliente1);
 
                         do {
-                            System.out.println("Hola"+getnombre()+" elige una opcion: ");
+                            System.out.println("Hola"+cliente1.getNombre()+" elige una opcion: ");
                             System.out.println("1. Ver coches disponibles");
                             System.out.println("2. Configurar un coche nuevo");
                             System.out.println("3. Ver factura");
@@ -34,13 +37,13 @@ public class CocheMain {
             
                             switch (opcion2) {
                                 case 1:
-                                    verCoches();
+                                    concesionario1.verCoches();
                                     break;
                                 case 2:
                                     meterDatosCoche(sc);
                                     break;
                                 case 3:
-                                    datosVenta();
+                                    datosVenta(cliente1);
                                     break;
                                 default:
                                     System.out.println("Opcion no valida");
@@ -61,13 +64,52 @@ public class CocheMain {
         
     }
 
-    public static void verCoches(){
+    public static void meterDatos(Scanner sc, Cliente cliente1) {
+        System.out.println("Introduce tu Nombre: ");
+        String nombre = sc.nextLine();
+        cliente1.setNombre(nombre);
 
-        Coche coche1 = new Coche(2222, "Ferrari", "488 Pista", "Deportivo", null, null);
-        Coche coche2 = new Coche(3332, "Toyota", "Yaris", "Compacto", null, null);
+        System.out.println("Introduce tu primer apellido");
+        String apellido1 = sc.nextLine();
+        cliente1.setApellido1(apellido1);
+
+        System.out.println("Introduce tu segundo appellido");
+        String apellido2 = sc.nextLine();
+        cliente1.setApellido2(apellido2);
+
+        System.out.println("Introduce tu dni: ");
+        String dni = sc.nextLine();
+        cliente1.setDni(dni);
+
+        System.out.println("Introduce tu edad: ");
+        int edad = sc.nextInt();
         
-        System.out.println("Estos son los coches que tenemos en stock");
-        System.out.println(coche1);
-        System.out.println(coche2);
+        cliente1.setEdad(edad);
+        System.out.println();
     }
+
+    private static void meterDatosCoche(Scanner sc){
+
+        System.out.println("Introduce la Marca que quieras(Toyota, Ferrai, Porsche )");
+        String marca = sc.nextLine();
+
+        System.out.println("Introduce el modelo del coche (Corolla, Roma, Panamera)");
+        String modelo = sc.nextLine();
+
+        System.out.println("Introduce la categoria");
+        String categoria = sc.nextLine();
+
+
+    }
+
+    public static void datosVenta (Cliente cliente1){
+
+        System.out.println("El coche ha sido vendido al cliente: ");
+        cliente1.verInfo();
+
+        System.out.println("El coche eligido es: ");
+
+    }
+
+    
 }
