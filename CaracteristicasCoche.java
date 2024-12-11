@@ -13,12 +13,15 @@ public class CaracteristicasCoche {
     private String[] arrayCaracteristicasSelec = new String[arrayCaracteristicas.length];
     private double precioCocheCarac = 0;
 
-    public CaracteristicasCoche(String[] arrayCaracteristicas, String[] coloresDisponibles,
-            String[] transmisionDisponibles, String[] motorizacionDisponible) {
-        this.arrayCaracteristicas = arrayCaracteristicas;
-        this.coloresDisponibles = coloresDisponibles;
-        this.transmisionDisponibles = transmisionDisponibles;
-        this.motorizacionDisponible = motorizacionDisponible;
+    // Atributos para el constructor.
+    private String color; 
+    private String transmision; 
+    private String motorizacion;
+
+    public CaracteristicasCoche(String color, String transmision, String motorizacion){
+        this.color = color; 
+        this.transmision = transmision;
+        this.motorizacion = motorizacion; 
     }
 
     protected void solicitarCaracterísticas(Scanner sc) {
@@ -108,5 +111,9 @@ public class CaracteristicasCoche {
 
     protected double getprecioCocheCarac() {
         return precioCocheCarac;
+    }
+
+    protected String verCaracteristicas() {
+        return "[Color: " + color + ", Transmision: " + transmision + ", Motorizacion: " + motorizacion + "]";
     }
 }

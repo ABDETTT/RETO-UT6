@@ -8,8 +8,6 @@ public class Coche {
     
     public static double precioCoche=0;
 
-    
-
     public Coche(int id, String marca, String modelo, String categoria, CaracteristicasCoche caracteristicas) {
         this.id = id;
         this.marca = marca;
@@ -17,7 +15,6 @@ public class Coche {
         this.categoria = categoria;
         this.caracteristicas = caracteristicas;
     }
-
 
     public int getId() {
         return id;
@@ -71,9 +68,7 @@ public class Coche {
         precioCoche = +caracteristicas.getprecioCocheCarac();
     }
 
-
     protected void resumenCoche() {
-        System.out.println("\nResumen del coche configurado: Id: " + id + "Marca: " + marca + "Modelo: " + modelo
-                + "Categoria: " + categoria + "Características: " + caracteristicas + "Precio total: " + precioCoche);
+        System.out.println("\nCoche "+id+": "+", Marca: " + marca+", Modelo: "+modelo+", Categoria: "+categoria+", Caracteristicas: "+caracteristicas.verCaracteristicas());
     }
 }
