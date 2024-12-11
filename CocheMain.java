@@ -68,7 +68,7 @@ public class CocheMain {
                                 break;
                             case 3:
                                 datosVenta(cliente1); 
-                                // Corregir 
+                                
                                 break;
                             case 4: 
                                 System.out.println("Volviendo al menu inicial...");
@@ -130,7 +130,7 @@ public class CocheMain {
         System.out.println();
     }
 
-    protected static void meterDatosCoche(Scanner sc) {
+    protected static void meterDatosCoche(Scanner sc) throws InterruptedException {
         int opcion = 0;
 
         int id=4;
@@ -155,7 +155,7 @@ public class CocheMain {
             System.out.println("Selecciona una opcion: ");
             System.out.println("1. Prodecer al pago");
             System.out.println("2. Volver a configurar un de nuevo");
-            System.out.println("3. Salir");
+            System.out.println("3. Volver al inicio");
             System.out.println();
             opcion = sc.nextInt();
 
@@ -166,7 +166,10 @@ public class CocheMain {
                 case 2:
                     meterDatosCoche(sc);
                     break;
+                case 3:
+                    verMenu(sc);
                 default:
+                    System.out.println("Opcion no valida");
                     break;
             }
 
