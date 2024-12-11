@@ -4,7 +4,7 @@ public class CocheMain {
     private static Coche coche1 = new Coche();
     private static Cliente cliente1 = new Cliente();
     private static GestorConcesionario concesionario1 = new GestorConcesionario();
-    private static CaracteristicasCoche caracteristicas0 = new CaracteristicasCoche(null, null, null);
+    private static CaracteristicasCoche caracteristicas0 = new CaracteristicasCoche(null, null, null, 0);
 
     public static void main(String[] args) throws InterruptedException {
         Scanner sc = new Scanner(System.in);

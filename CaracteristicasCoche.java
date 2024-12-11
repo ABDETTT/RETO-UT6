@@ -17,11 +17,21 @@ public class CaracteristicasCoche {
     private String color; 
     private String transmision; 
     private String motorizacion;
+    private double precioC;
 
-    public CaracteristicasCoche(String color, String transmision, String motorizacion){
+    public CaracteristicasCoche(String color, String transmision, String motorizacion, double precioC){
         this.color = color; 
         this.transmision = transmision;
         this.motorizacion = motorizacion; 
+        this.precioC = precioC;
+    }
+    
+    public double getPrecioC() {
+        return precioC;
+    }
+
+    public void setPrecioC(double precioC) {
+        this.precioC = precioC;
     }
 
     public String getColor() {

@@ -7,8 +7,8 @@ public class Coche {
     private String modelo; // Modelo del coche(Ibiza, Corolla, Leon...).
     private String categoria; // Categoria del coche(Súv, Coupe, Todoterreno...).
     private CaracteristicasCoche caracteristicas; // Caracteristicas del coche(Color, Motorización, Transmision...).
-    
-    public static double precioCoche=0;
+
+    private double precioCocheBase=20000; // El precio base de un coche parte de 20000$ y dependiendo de que caracteristicas eliga el cliente, costara mas o menos. 
 
     public Coche(int id, String marca, String modelo, String categoria, CaracteristicasCoche caracteristicas) {
         this.id = id;
@@ -62,20 +62,14 @@ public class Coche {
         this.caracteristicas = caracteristicas;
     }
 
-    public static double getPrecioCoche() {
-        return precioCoche;
-    }
-
-    public static void setPrecioCoche(double precioCoche) {
-        Coche.precioCoche = precioCoche;
-    }
-
     protected void configurarCoche() {
-        precioCoche = +caracteristicas.getprecioCocheCarac();
+        precioCocheBase = +caracteristicas.getprecioCocheCarac();
     }
 
     protected void resumenCoche() {
         System.out.println("Coche "+id+": "+"Marca: " + marca+", Modelo: "+modelo+", Categoria: "+categoria+", Caracteristicas: "+caracteristicas.verCaracteristicas()+". ");
+        double precioCocheFinal=precioCocheBase+caracteristicas.getPrecioC(); // El precio final del coche, sumado ya el precio base y el precio de las caracteristicas seleccionadas. 
+        System.out.println("Precio: "+precioCocheFinal+"$. ");
     }
 
     
