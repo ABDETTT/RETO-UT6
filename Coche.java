@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Coche {
 
     private int id; // Numero para identificar el coche.
@@ -14,6 +16,10 @@ public class Coche {
         this.modelo = modelo;
         this.categoria = categoria;
         this.caracteristicas = caracteristicas;
+    }
+
+    public Coche(){
+
     }
 
     public int getId() {
@@ -69,6 +75,29 @@ public class Coche {
     }
 
     protected void resumenCoche() {
-        System.out.println("\nCoche "+id+": "+", Marca: " + marca+", Modelo: "+modelo+", Categoria: "+categoria+", Caracteristicas: "+caracteristicas.verCaracteristicas());
+        System.out.println("Coche "+id+": "+"Marca: " + marca+", Modelo: "+modelo+", Categoria: "+categoria+", Caracteristicas: "+caracteristicas.verCaracteristicas()+". ");
+    }
+
+    protected void meterDatosCoche(Scanner sc) {
+        CaracteristicasCoche caracteristicas0 = new CaracteristicasCoche(modelo, marca, categoria);
+
+        int id=4;
+        setId(id);
+
+        System.out.print("Introduce la marca que quieras (Toyota, Ferrai, Porsche): ");
+        String marca = sc.nextLine();
+        setMarca(marca);
+
+        System.out.print("Introduce el modelo del coche (Corolla, Roma, Panamera): ");
+        String modelo = sc.nextLine();
+        setModelo(modelo);
+
+        System.out.print("Introduce la categoria (Suv, Todoterreno, Deportivo): ");
+        String categoria = sc.nextLine();
+        setCategoria(categoria);
+
+        caracteristicas0.solicitarCaracterísticas(sc);
+
+        System.out.println();
     }
 }

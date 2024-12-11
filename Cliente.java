@@ -3,26 +3,10 @@ import java.util.Scanner;
 public class Cliente {
 
     private String nombre;
-    private int edad;
     private String dni;
     private String apellido1;
     private String apellido2;
     private String direccion;
-
-    /**
-     * @param args
-     */
-
-
-    public Cliente(String nombre, int edad, String dni, String apellido1, String apellido2, String direccion) {
-        this.nombre = nombre;
-        this.edad = edad;
-        this.dni = dni;
-        this.apellido1 = apellido1;
-        this.apellido2 = apellido2;
-        this.direccion = direccion;
-
-    }
 
     public Cliente() {
         //TODO Auto-generated constructor stub
@@ -34,14 +18,6 @@ public class Cliente {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-
-    public int getEdad() {
-        return edad;
-    }
-
-    public void setEdad(int edad) {
-        this.edad = edad;
     }
 
     public String getDni() {
@@ -80,6 +56,30 @@ public class Cliente {
         System.out.println("Datos de cliente");
         System.out.println();
         System.out.println("Nombre: " + this.nombre + ", Apellido1: " + this.apellido1 + ", Apellido2: "
-                + this.apellido2 + ", DNI: " + this.dni + ", Edad: " + this.edad);
+                + this.apellido2 + ", DNI: " + this.dni + ", Direccion: " + this.direccion);
+    }
+
+    public void meterDatos(Scanner sc) {
+        System.out.print("Introduce tu nombre: ");
+        String nombre = sc.nextLine();
+        setNombre(nombre);
+
+        System.out.print("Introduce tu primer apellido: ");
+        String apellido1 = sc.nextLine();
+        setApellido1(apellido1);
+
+        System.out.print("Introduce tu segundo apellido: ");
+        String apellido2 = sc.nextLine();
+        setApellido2(apellido2);
+
+        System.out.print("Introduce tu dni: ");
+        String dni = sc.nextLine();
+        setDni(dni);
+
+        System.out.print("Introduce tu direccion(Calle/Avenida, Numero, Codigo Postal): ");
+        String direccion = sc.nextLine();
+        setDireccion(direccion);
+
+        System.out.println();
     }
 }

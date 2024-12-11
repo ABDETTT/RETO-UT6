@@ -143,4 +143,5 @@ public class CaracteristicasCoche {
     protected String verCaracteristicas() {
         return "[Color: " + color + ", Transmision: " + transmision + ", Motorizacion: " + motorizacion + "]";
     }
+    
 }

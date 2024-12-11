@@ -1,16 +1,16 @@
 import java.util.Scanner;
 
 public class CocheMain {
-    public static void main(String[] args) {
+    private static Coche coche1 = new Coche();
+    private static Cliente cliente1 = new Cliente();
+    private static GestorConcesionario concesionario1 = new GestorConcesionario();
+    public static void main(String[] args) throws InterruptedException {
         Scanner sc = new Scanner(System.in);
 
-        Cliente cliente1 = new Cliente();
-        GestorConcesionario concesionario1 = new GestorConcesionario();
-
-        verMenu(sc, cliente1, concesionario1);
+        verMenu(sc);
     }
 
-    public static void verMenu(Scanner sc, Cliente cliente1, GestorConcesionario concesionario1){
+    public static void verMenu(Scanner sc)throws InterruptedException {
         int opcion = 0;
         int opcion2 = 0;
 
@@ -20,39 +20,73 @@ public class CocheMain {
             System.out.println("1. Registrate ");
             System.out.println("2. Salir ");
             opcion = sc.nextInt();
+            sc.nextLine(); // Limpiar el buffer
 
             switch (opcion) {
                 case 1:
-                    
-                        meterDatos(sc, cliente1);
+                    cliente1.meterDatos(sc);
 
-                        do {
-                            System.out.println("Hola"+cliente1.getNombre()+" elige una opcion: ");
-                            System.out.println("1. Ver coches disponibles");
-                            System.out.println("2. Configurar un coche nuevo");
-                            System.out.println("3. Ver factura");
-                            System.out.println("4. Salir");
-                            opcion2 = sc.nextInt();
-            
-                            switch (opcion2) {
-                                case 1:
-                                    concesionario1.verCoches();
-                                    break;
-                                case 2:
-                                    meterDatosCoche(sc);
-                                    break;
-                                case 3:
-                                    datosVenta(cliente1);
-                                    break;
-                                default:
-                                    System.out.println("Opcion no valida");
-                                    break;
-                            }
-            
-                        } while (opcion2 != 4);
+                    do {
+                        System.out.println("Hola " + cliente1.getNombre() + " elige una opcion: ");
+                        System.out.println("1. Ver coches disponibles. ");
+                        System.out.println("2. Configurar un coche nuevo. ");
+                        System.out.println("3. Ver factura. ");
+                        System.out.println("4. Volver al menu inicial. ");
+                        opcion2 = sc.nextInt();
+                        sc.nextLine(); // Limpiar el buffer
+
+                        switch (opcion2) {
+                            case 1:
+                                concesionario1.verCoches();
+                                int opcion3;
+
+                                do {
+                                    System.out.println(cliente1.getNombre()+" elige una opcion: ");
+                                    System.out.println("1. Elegir un coche del stock. ");
+                                    System.out.println("2. Volver atras. ");
+                                    opcion3 = sc.nextInt();
+
+                                    switch (opcion3) {
+                                        case 1:
+                                            //Hacerla funcional.
+                                            break;
+                                        case 2:
+                                            System.out.println("Volviendo atras....");
+                                            System.out.println();
+                                            break;
+                                        default:
+                                            System.out.println("Opcion no valida, vuelve a intentarlo. ");
+                                            break;
+                                    }
+                                } while (opcion3!=2);
+
+                                break;
+                            case 2:
+                                coche1.meterDatosCoche(sc);
+                                // Acabarlo. 
+                                break;
+                            case 3:
+                                datosVenta(cliente1); 
+                                // Corregir 
+                                break;
+                            case 4: 
+                                System.out.println("Volviendo al menu inicial...");
+                                System.out.println();
+                                break;
+                            default:
+                                System.out.println("Opcion no valida, vuelve a intentarlo. ");
+                                break;
+                        }
+
+                    } while (opcion2 != 4);
 
                     break;
-
+                case 2:
+                    System.out.println("Adios, vuelva pronto. ");
+                    System.out.println("Saliendo del programa...");
+                    // Metodo que pausa la ejecución del hilo por una cantidad especifica de tiempo.
+                    Thread.sleep(1000); // Delay de 1s
+                    break;
                 default:
                     System.out.println("Opcion invalida");
                     break;
@@ -62,45 +96,7 @@ public class CocheMain {
 
     }
 
-    public static void meterDatos(Scanner sc, Cliente cliente1) {
-        System.out.println("Introduce tu Nombre: ");
-        String nombre = sc.nextLine();
-        cliente1.setNombre(nombre);
-
-        System.out.println("Introduce tu primer apellido");
-        String apellido1 = sc.nextLine();
-        cliente1.setApellido1(apellido1);
-
-        System.out.println("Introduce tu segundo appellido");
-        String apellido2 = sc.nextLine();
-        cliente1.setApellido2(apellido2);
-
-        System.out.println("Introduce tu dni: ");
-        String dni = sc.nextLine();
-        cliente1.setDni(dni);
-
-        System.out.println("Introduce tu edad: ");
-        int edad = sc.nextInt();
-        
-        cliente1.setEdad(edad);
-        System.out.println();
-    }
-
-    private static void meterDatosCoche(Scanner sc){
-
-        System.out.println("Introduce la Marca que quieras(Toyota, Ferrai, Porsche )");
-        String marca = sc.nextLine();
-
-        System.out.println("Introduce el modelo del coche (Corolla, Roma, Panamera)");
-        String modelo = sc.nextLine();
-
-        System.out.println("Introduce la categoria");
-        String categoria = sc.nextLine();
-
-
-    }
-
-    public static void datosVenta (Cliente cliente1){
+    public static void datosVenta(Cliente cliente1) {
 
         System.out.println("El coche ha sido vendido al cliente: ");
         cliente1.verInfo();
@@ -109,5 +105,4 @@ public class CocheMain {
 
     }
 
-    
 }
