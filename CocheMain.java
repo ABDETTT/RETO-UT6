@@ -4,6 +4,8 @@ public class CocheMain {
     private static Coche coche1 = new Coche();
     private static Cliente cliente1 = new Cliente();
     private static GestorConcesionario concesionario1 = new GestorConcesionario();
+    private static CaracteristicasCoche caracteristicas0 = new CaracteristicasCoche(null, null, null);
+
     public static void main(String[] args) throws InterruptedException {
         Scanner sc = new Scanner(System.in);
 
@@ -24,7 +26,7 @@ public class CocheMain {
 
             switch (opcion) {
                 case 1:
-                    cliente1.meterDatos(sc);
+                    meterDatos(sc);
 
                     do {
                         System.out.println("Hola " + cliente1.getNombre() + " elige una opcion: ");
@@ -62,8 +64,7 @@ public class CocheMain {
 
                                 break;
                             case 2:
-                                coche1.meterDatosCoche(sc);
-                                // Acabarlo. 
+                                meterDatosCoche(sc); 
                                 break;
                             case 3:
                                 datosVenta(cliente1); 
@@ -105,28 +106,89 @@ public class CocheMain {
 
     }
 
-    public void meterDatos(Scanner sc) {
+    public static void meterDatos(Scanner sc) {
         System.out.print("Introduce tu nombre: ");
         String nombre = sc.nextLine();
-        setNombre(nombre);
+        cliente1.setNombre(nombre);
 
         System.out.print("Introduce tu primer apellido: ");
         String apellido1 = sc.nextLine();
-        setApellido1(apellido1);
+        cliente1.setApellido1(apellido1);
 
         System.out.print("Introduce tu segundo apellido: ");
         String apellido2 = sc.nextLine();
-        setApellido2(apellido2);
+        cliente1.setApellido2(apellido2);
 
         System.out.print("Introduce tu dni: ");
         String dni = sc.nextLine();
-        setDni(dni);
+        cliente1.setDni(dni);
 
         System.out.print("Introduce tu direccion(Calle/Avenida, Numero, Codigo Postal): ");
         String direccion = sc.nextLine();
-        setDireccion(direccion);
+        cliente1.setDireccion(direccion);
 
         System.out.println();
+    }
+
+    protected static void meterDatosCoche(Scanner sc) {
+        int opcion = 0;
+
+        int id=4;
+        coche1.setId(id);
+
+        System.out.print("Introduce la marca que quieras (Toyota, Ferrai, Porsche): ");
+        String marca = sc.nextLine();
+        coche1.setMarca(marca);
+
+        System.out.print("Introduce el modelo del coche (Corolla, Roma, Panamera): ");
+        String modelo = sc.nextLine();
+        coche1.setModelo(modelo);
+
+        System.out.print("Introduce la categoria (Suv, Todoterreno, Deportivo): ");
+        String categoria = sc.nextLine();
+        coche1.setCategoria(categoria);
+
+        caracteristicas0.solicitarCaracterísticas(sc);
+
+        System.out.println();
+        do {
+            System.out.println("Selecciona una opcion: ");
+            System.out.println("1. Prodecer al pago");
+            System.out.println("2. Volver a configurar un de nuevo");
+            System.out.println("3. Salir");
+            System.out.println();
+            opcion = sc.nextInt();
+
+            switch (opcion) {
+                case 1:
+                    pagar(sc);
+                    break;
+                case 2:
+                    meterDatosCoche(sc);
+                    break;
+                default:
+                    break;
+            }
+
+        } while (opcion != 4);
+
+    }
+
+    public static void pagar(Scanner sc){
+        double precioFinal = 0.0;
+
+        System.out.print("Introduce la cantidad de dinero disponible: ");
+        double dineroCliente = sc.nextDouble();
+
+        if (dineroCliente != precioFinal) {
+
+            System.out.println("Operacion rechazada(dinero insuficiente)");
+
+        } else {
+
+            System.out.println("Operacion realizada correctamnte");
+        }
+
     }
 
 }
