@@ -24,6 +24,30 @@ public class CaracteristicasCoche {
         this.motorizacion = motorizacion; 
     }
 
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public String getTransmision() {
+        return transmision;
+    }
+
+    public void setTransmision(String transmision) {
+        this.transmision = transmision;
+    }
+
+    public String getMotorizacion() {
+        return motorizacion;
+    }
+
+    public void setMotorizacion(String motorizacion) {
+        this.motorizacion = motorizacion;
+    }
+
     protected void solicitarCaracterísticas(Scanner sc) {
         int n = 0;
         int opcionSelec;
@@ -52,6 +76,7 @@ public class CaracteristicasCoche {
 
                 arrayCaracteristicasSelec[i] = coloresDisponibles[opcionSelec - 1];
                 precioCocheCarac += precioColor[opcionSelec - 1];
+                setColor(arrayCaracteristicasSelec[i]);
 
             } else if (n == 1) {
                 int n1 = 0;
@@ -73,6 +98,7 @@ public class CaracteristicasCoche {
 
                 arrayCaracteristicasSelec[i] = transmisionDisponibles[opcionSelec - 1];
                 precioCocheCarac += precioTransmision[opcionSelec - 1];
+                setTransmision(arrayCaracteristicasSelec[i]);
 
             } else {
                 int n1 = 0;
@@ -94,6 +120,7 @@ public class CaracteristicasCoche {
 
                 arrayCaracteristicasSelec[i] = motorizacionDisponible[opcionSelec - 1];
                 precioCocheCarac += precioMotorizacion[opcionSelec - 1];
+                setMotorizacion(arrayCaracteristicasSelec[i]);
             }
         }
     }
