@@ -59,27 +59,5 @@ public class Cliente {
                 + this.apellido2 + ", DNI: " + this.dni + ", Direccion: " + this.direccion);
     }
 
-    public void meterDatos(Scanner sc) {
-        System.out.print("Introduce tu nombre: ");
-        String nombre = sc.nextLine();
-        setNombre(nombre);
-
-        System.out.print("Introduce tu primer apellido: ");
-        String apellido1 = sc.nextLine();
-        setApellido1(apellido1);
-
-        System.out.print("Introduce tu segundo apellido: ");
-        String apellido2 = sc.nextLine();
-        setApellido2(apellido2);
-
-        System.out.print("Introduce tu dni: ");
-        String dni = sc.nextLine();
-        setDni(dni);
-
-        System.out.print("Introduce tu direccion(Calle/Avenida, Numero, Codigo Postal): ");
-        String direccion = sc.nextLine();
-        setDireccion(direccion);
-
-        System.out.println();
-    }
+    
 }
