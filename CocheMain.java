@@ -48,7 +48,8 @@ public class CocheMain {
                         System.out.println("1. Ver coches disponibles. ");
                         System.out.println("2. Configurar un coche nuevo. ");
                         System.out.println("3. Ver factura. "); // Cambiar a informacion de la empresa 
-                        System.out.println("4. Volver al menu inicial. ");
+                        System.out.println("4. Valoracion");
+                        System.out.println("5. Volver al menu inicial. ");
                         opcion2 = sc.nextInt();
                         sc.nextLine(); // Limpiar el buffer
 
@@ -222,10 +223,12 @@ public class CocheMain {
                                 meterDatosCoche(sc);
                                 break;
                             case 3:
-                                // Informacion de la empresa. 
-
+                                venta1.factura(cliente1, coche1);
                                 break;
                             case 4:
+                                opinionCliente(sc);
+                                break;
+                            case 5:
                                 System.out.println("Volviendo al menu inicial...");
                                 System.out.println();
                                 break;
@@ -350,6 +353,29 @@ public class CocheMain {
             System.out.println("Operacion realizada correctamnte");
         }
 
+    }
+
+    public static void opinionCliente(Scanner sc){
+        int opcionCliente = 0;
+        System.out.println("Seleccione una opcion: ");
+        System.out.println("1. Dejar valoracion");
+        System.out.println("2. volver al menu inicial");
+        opcionCliente = sc.nextInt();
+        sc.nextLine();
+
+        switch (opcionCliente) {
+            case 1:
+                System.out.println("Escribe tu opinion sobre nuestro negocio ");
+                String opinion = sc.nextLine();
+                break;
+            case 2:
+                System.out.println("Gracias....Hasta luego");
+
+                break;
+            default:
+                System.out.println("Opcion invalida");
+                break;
+        }
     }
 
 }
