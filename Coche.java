@@ -72,5 +72,16 @@ public class Coche {
         System.out.println("Precio: "+precioCocheFinal+"$. ");
     }
 
+    protected void verFacturaCoche(){
+        System.out.println("Datos coche: ");
+        System.out.println("Coche: "+this.marca+" "+this.modelo+". ");
+        System.out.println("Categoria: "+this.categoria+". ");
+        System.out.println("Caracteristicas: "+caracteristicas.verCaracteristicas()+". ");
+
+        double precioCocheFinal=precioCocheBase+caracteristicas.getPrecioC();
+        System.out.println("......................");
+        System.out.println("Precio Total: "+ precioCocheFinal+"$. ");
+    }   
+
     
 }

@@ -50,11 +50,11 @@ public class Cliente {
         this.direccion = direccion;
     }
 
-    public void verInfo() {
-        System.out.println("Datos de cliente");
-        System.out.println();
-        System.out.println("Nombre: " + this.nombre + ", Apellido1: " + this.apellido1 + ", Apellido2: "
-                + this.apellido2 + ", DNI: " + this.dni + ", Direccion: " + this.direccion);
+    public void verFacturaCliente() {
+        System.out.println("Datos de cliente: ");
+        System.out.println("Nombre completo: " +this.nombre+" "+this.apellido1+" "+this.apellido2);
+        System.out.println("DNI: "+this.dni);
+        System.out.println("Domicilio: "+this.direccion);
     }
 
     
