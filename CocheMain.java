@@ -47,7 +47,7 @@ public class CocheMain {
                         System.out.println("Hola " + cliente1.getNombre() + " elige una opcion: ");
                         System.out.println("1. Ver coches disponibles. ");
                         System.out.println("2. Configurar un coche nuevo. ");
-                        System.out.println("3. Ver factura. ");
+                        System.out.println("3. Ver factura. "); // Cambiar a informacion de la empresa 
                         System.out.println("4. Volver al menu inicial. ");
                         opcion2 = sc.nextInt();
                         sc.nextLine(); // Limpiar el buffer
@@ -222,7 +222,7 @@ public class CocheMain {
                                 meterDatosCoche(sc);
                                 break;
                             case 3:
-                                datosVenta(cliente1);
+                                // Informacion de la empresa. 
 
                                 break;
                             case 4:
