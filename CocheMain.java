@@ -344,13 +344,14 @@ public class CocheMain {
         System.out.print("Introduce la cantidad de dinero disponible: ");
         double dineroCliente = sc.nextDouble();
 
-        if (dineroCliente != precioFinal) {
+        if (dineroCliente <= precioFinal) {
 
             System.out.println("Operacion rechazada(dinero insuficiente)");
 
         } else {
 
             System.out.println("Operacion realizada correctamnte");
+            System.out.println("Gracias por comprar en Coche Amigo");
         }
 
     }
