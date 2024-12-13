@@ -47,9 +47,7 @@ public class CocheMain {
                         System.out.println("Hola " + cliente1.getNombre() + " elige una opcion: ");
                         System.out.println("1. Ver coches disponibles. ");
                         System.out.println("2. Configurar un coche nuevo. ");
-                        System.out.println("3. Ver factura. "); // Cambiar a informacion de la empresa 
-                        System.out.println("4. Valoracion");
-                        System.out.println("5. Volver al menu inicial. ");
+                        System.out.println("3. Volver al menu inicial. ");
                         opcion2 = sc.nextInt();
                         sc.nextLine(); // Limpiar el buffer
 
@@ -220,15 +218,10 @@ public class CocheMain {
 
                                 break;
                             case 2:
+                                System.out.println();
                                 meterDatosCoche(sc);
                                 break;
                             case 3:
-                                venta1.factura(cliente1, coche1);
-                                break;
-                            case 4:
-                                opinionCliente(sc);
-                                break;
-                            case 5:
                                 System.out.println("Volviendo al menu inicial...");
                                 System.out.println();
                                 break;
@@ -238,7 +231,7 @@ public class CocheMain {
                                 break;
                         }
 
-                    } while (opcion2 != 4 && comprado!=true);
+                    } while (opcion2 != 3 && comprado!=true);
 
                     break;
                 case 2:
