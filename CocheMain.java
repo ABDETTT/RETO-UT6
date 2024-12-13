@@ -6,22 +6,24 @@ import java.util.Scanner;
  * @since 02 diciembre 2024 
  */
 public class CocheMain {
-    private static Coche coche0 = new Coche();
+    // Atributos de inicializacion. 
+    private static Coche coche0 = new Coche(); 
     private static Cliente cliente1 = new Cliente();
     private static GestorConcesionario concesionario1 = new GestorConcesionario();
     private static CaracteristicasCoche caracteristicas0 = new CaracteristicasCoche(null, null, null, 0);
     private static Venta venta1 = new Venta();
 
+    // Atributos con valores predeterminados. 
     private static CaracteristicasCoche caracteristicas1 = new CaracteristicasCoche("Rojo", "Automatico", "Gasolina",
             28500);
     private static CaracteristicasCoche caracteristicas2 = new CaracteristicasCoche("Azul", "Manual", "Gasoil", 24000);
     private static CaracteristicasCoche caracteristicas3 = new CaracteristicasCoche("Negro", "Automatico", "Hibrido",
             32500);
-
     private static Coche coche1 = new Coche(1, "Ferrari", "488 Pista", "Super Deportivo", caracteristicas1);
     private static Coche coche2 = new Coche(2, "Toyota", "Yaris", "Compacto", caracteristicas2);
     private static Coche coche3 = new Coche(3, "Kia", "Sport", "Suv", caracteristicas3);
 
+    // Atributo que se usa para saber si la compra esta realizada, con lo cual termina el progama.
     private static boolean comprado = false;
 
     // El throws InterruptedException es una exepcion para poder usar el metodo Thread.sleep().
@@ -33,9 +35,15 @@ public class CocheMain {
 
     }
 
+    
+    /** 
+     * Menu inicial en el que se ejecutan todos los demas metodos. 
+     * @param sc
+     * @throws InterruptedException
+     */
     public static void verMenu(Scanner sc) throws InterruptedException {
-        int opcion = 0;
-        int opcion2 = 0;
+        int opcion = 0; // Opcion seleccionada del menu inicial.
+        int opcion2 = 0; // Opcion seleccionada del submenu. 
 
         System.out.println("**** Bienvenido a Coche Amigo ****");
 
