@@ -19,12 +19,13 @@ public class CocheMain {
 
     private static boolean comprado = false;
 
-    // El throws InterruptedException es una exepcion para poder usar el metodo
-    // Thread.sleep().
+    // El throws InterruptedException es una exepcion para poder usar el metodo Thread.sleep().
     public static void main(String[] args) throws InterruptedException {
         Scanner sc = new Scanner(System.in);
 
         verMenu(sc);
+        sc.close();
+
     }
 
     public static void verMenu(Scanner sc) throws InterruptedException {
@@ -47,8 +48,6 @@ public class CocheMain {
                     boolean submenuinicial=false;
 
                     do {
-                        
-
                         System.out.println("Hola " + cliente1.getNombre() + " elige una opcion: ");
                         System.out.println("1. Ver coches disponibles. ");
                         System.out.println("2. Configurar un coche nuevo. ");
@@ -271,8 +270,7 @@ public class CocheMain {
         int opcion5;
         System.out.println();
         System.out.println("Has elegido el siguiente coche: ");
-        concesionario1.verCoche(coche);
-        System.out.println();
+        concesionario1.verCoches(coche);
 
         menuPagar(sc, submenuinicial, coche);
     }

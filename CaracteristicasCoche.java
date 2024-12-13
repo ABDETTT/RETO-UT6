@@ -28,107 +28,102 @@ public class CaracteristicasCoche {
         this.precioC = precioC;
     }
 
-    
-    
     /** 
      * Solicita por scanner las caracteristicas que desee el cliente. 
      * @param sc
      */
     protected void solicitarCaracteristicas(Scanner sc) {
-        int opcionSelec; // Posicion del array de la caracteristica seleccionada. 
+        int opcionSelec; // Posicion del array de la caracteristica seleccionada.
+        int n1 = 0; // Contador que se usa dentro del bucle do while del switch case para el mensaje de error. 
 
         for (int i = 0; i < arrayCaracteristicas.length; i++) {
-            System.out.println("\nElige " + arrayCaracteristicas[i]);
+            System.out.println("\nElige " + arrayCaracteristicas[i]); // Caracteristica a elegir. 
 
-            // Elegir un color. 
-            if (i == 0) { 
-                int n1 = 0;
+            switch (i) {
 
-                for (int j = 0; j < coloresDisponibles.length; j++) {
-                    System.out.println(j + 1 + ". " + coloresDisponibles[j] + " " + precioColor[j] + "$");
-                }
+                // Elegir un color.
+                case 0: 
+                    n1 = 0;
 
-                do {
-                    if (n1 > 0) {
-                        System.out.println("Opcion no valida.");
+                    for (int j = 0; j < coloresDisponibles.length; j++) {
+                    System.out.println(j + 1 + ". " + coloresDisponibles[j] + " " + precioColor[j] + "$"); // Colores disponibles a elegir con su respectivo precio. 
                     }
 
-                    System.out.print("Selecciona una opcion: ");
-                    opcionSelec = sc.nextInt();
+                    do {
+                        if (n1 > 0) {
+                            System.out.println("Opcion no valida, vuelve a intentarlo.");
+                            System.out.println();
+                        }
 
-                    n1++;
-                } while (opcionSelec > coloresDisponibles.length || opcionSelec < 1);
+                        System.out.print("Selecciona una opcion: ");
+                        opcionSelec = sc.nextInt();
 
-                arrayCaracteristicasSelec[i] = coloresDisponibles[opcionSelec - 1];
-                precioCocheCarac += precioColor[opcionSelec - 1];
-                setColor(arrayCaracteristicasSelec[i]);
+                        n1++;
+                    } while (opcionSelec > coloresDisponibles.length || opcionSelec < 1);
 
+                    arrayCaracteristicasSelec[i] = coloresDisponibles[opcionSelec - 1]; // Guardar la opcion seleccionada. 
+                    precioCocheCarac += precioColor[opcionSelec - 1]; // Sumar el precio del color seleccionado. 
+                    setColor(arrayCaracteristicasSelec[i]); // Guardar color seleccionado en la variable del constructor. 
+
+                    break;
+                // Elegir transmision. 
+                case 1:
+                    n1 = 0;
+
+                    for (int j = 0; j < transmisionDisponibles.length; j++) {
+                    System.out.println(j + 1 + ". " + transmisionDisponibles[j] + " " + precioTransmision[j] + "$"); // Transmisiones disponibles a elegir con su respectivo precio. 
+                    }
+
+                    do {
+                        if (n1 > 0) {
+                            System.out.println("Opcion no valida, vuelve a intentarlo.");
+                            System.out.println();
+                        }
+
+                        System.out.print("Selecciona una opcion: ");
+                        opcionSelec = sc.nextInt();
+
+                        n1++;
+                    } while (opcionSelec > transmisionDisponibles.length || opcionSelec < 1);
+
+                    arrayCaracteristicasSelec[i] = transmisionDisponibles[opcionSelec - 1]; // Guardar la opcion seleccionada. 
+                    precioCocheCarac += precioTransmision[opcionSelec - 1]; // Sumar el precio de la transmision seleccionado. 
+                    setTransmision(arrayCaracteristicasSelec[i]); // Guardar transmision seleccionado en la variable del constructor. 
+                    break;
+                // Elegir motorizacion. 
+                case 2:
+                    n1 = 0;
+
+                    for (int j = 0; j < motorizacionDisponible.length; j++) {
+                        System.out.println(j + 1 + ". " + motorizacionDisponible[j] + " " + precioMotorizacion[j] + "$"); // Motorizaciones disponibles a elegir con su respectivo precio. 
+                    }
+
+                    do {
+                        if (n1 > 0) {
+                            System.out.println("Opcion no valida, vuelve a intentarlo.");
+                            System.out.println();
+                        }
+
+                        System.out.print("Selecciona una opcion: ");
+                        opcionSelec = sc.nextInt();
+
+                        n1++;
+                    } while (opcionSelec > motorizacionDisponible.length || opcionSelec < 1);
+
+                    arrayCaracteristicasSelec[i] = motorizacionDisponible[opcionSelec - 1]; // Guardar la opcion seleccionada.
+                    precioCocheCarac += precioMotorizacion[opcionSelec - 1]; // Sumar el precio de la motorizacion seleccionado. 
+                    setMotorizacion(arrayCaracteristicasSelec[i]); // Guardar motorizacion seleccionado en la variable del constructor. 
+                    break;
             } 
-
-            // Elegir transmision. 
-            else if (i == 1) {
-                int n1 = 0;
-
-                for (int j = 0; j < transmisionDisponibles.length; j++) {
-                    System.out.println(j + 1 + ". " + transmisionDisponibles[j] + " " + precioTransmision[j] + "$");
-                }
-
-                do {
-                    if (n1 > 0) {
-                        System.out.println("Opcion no valida.");
-                    }
-
-                    System.out.print("Selecciona una opcion: ");
-                    opcionSelec = sc.nextInt();
-
-                    n1++;
-                } while (opcionSelec > transmisionDisponibles.length || opcionSelec < 1);
-
-                arrayCaracteristicasSelec[i] = transmisionDisponibles[opcionSelec - 1];
-                precioCocheCarac += precioTransmision[opcionSelec - 1];
-                setTransmision(arrayCaracteristicasSelec[i]);
-
-            } 
-            
-            // Elegir motorizacion. 
-            else {
-                int n1 = 0;
-
-                for (int j = 0; j < motorizacionDisponible.length; j++) {
-                    System.out.println(j + 1 + ". " + motorizacionDisponible[j] + " " + precioMotorizacion[j] + "$");
-                }
-
-                do {
-                    if (n1 > 0) {
-                        System.out.println("Opcion no valida.");
-                    }
-
-                    System.out.print("Selecciona una opcion: ");
-                    opcionSelec = sc.nextInt();
-
-                    n1++;
-                } while (opcionSelec > motorizacionDisponible.length || opcionSelec < 1);
-
-                arrayCaracteristicasSelec[i] = motorizacionDisponible[opcionSelec - 1];
-                precioCocheCarac += precioMotorizacion[opcionSelec - 1];
-                setMotorizacion(arrayCaracteristicasSelec[i]);
-            }
         }
 
-        setPrecioC(precioCocheCarac);
+        setPrecioC(precioCocheCarac); //  Guardar la suma del precio seleccionado en la variable del constructor. 
     }
 
-    protected void imprimirCaracteristicas() {
-        System.out.print("\nCaracteristicas seleccionadas: ");
-
-        for (int i = 0; i < arrayCaracteristicas.length; i++) {
-            System.out.print(arrayCaracteristicas[i] + ": " + arrayCaracteristicasSelec[i]);
-            if (i < arrayCaracteristicas.length - 1) {
-                System.out.print(", ");
-            }
-        }
-    }
-
+    /**
+     * Devuelve por pantalla las caracteristicas seleccionadas. 
+     * @return
+     */
     protected String verCaracteristicas() {
         return "[Color: " + color + ", Transmision: " + transmision + ", Motorizacion: " + motorizacion + "]";
     }

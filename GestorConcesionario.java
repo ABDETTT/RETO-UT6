@@ -5,9 +5,4 @@ public class GestorConcesionario {
         
         System.out.println();
     }
-
-    protected void verCoche(Coche coche){
-        coche.resumenCoche();
-    }
-
 }
