@@ -1,5 +1,10 @@
 import java.util.Scanner;
 
+/**
+ * @author Amine 
+ * @author Abdelilah
+ * @since 02 diciembre 2024 
+ */
 public class CaracteristicasCoche {
     public Scanner sc = new Scanner(System.in);
 

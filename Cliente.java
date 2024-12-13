@@ -1,3 +1,8 @@
+/**
+ * @author Amine 
+ * @author Abdelilah
+ * @since 02 diciembre 2024 
+ */
 public class Cliente {
     private String nombre; // Nombre del cliente. 
     private String dni; // Dni o nie del cliente. 

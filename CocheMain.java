@@ -1,5 +1,10 @@
 import java.util.Scanner;
 
+/**
+ * @author Amine 
+ * @author Abdelilah
+ * @since 02 diciembre 2024 
+ */
 public class CocheMain {
     private static Coche coche0 = new Coche();
     private static Cliente cliente1 = new Cliente();
