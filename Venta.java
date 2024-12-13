@@ -7,10 +7,4 @@ public class Venta {
         coche1.verFacturaCoche();
 
     }
-
-    public void ventas(){
-
-        System.out.println("Hemos vendido ");
-    }
-
 }
