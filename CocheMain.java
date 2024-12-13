@@ -177,7 +177,7 @@ public class CocheMain {
 
         System.out.println();
         System.out.println("Coche configurado: ");
-        coche0.resumenCocheConfigurado();
+        coche0.resumenCoche();
 
         System.out.println();
 
