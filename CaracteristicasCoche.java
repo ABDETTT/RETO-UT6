@@ -58,7 +58,7 @@ public class CaracteristicasCoche {
         this.motorizacion = motorizacion;
     }
 
-    protected void solicitarCaracterísticas(Scanner sc) {
+    protected void solicitarCaracteristicas(Scanner sc) {
         int n = 0;
         int opcionSelec;
 
@@ -133,6 +133,8 @@ public class CaracteristicasCoche {
                 setMotorizacion(arrayCaracteristicasSelec[i]);
             }
         }
+
+        setPrecioC(precioCocheCarac);
     }
 
     protected void imprimirCaracteristicas() {
