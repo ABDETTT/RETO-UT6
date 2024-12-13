@@ -1,14 +1,25 @@
 public class Cliente {
-
-    private String nombre;
-    private String dni;
-    private String apellido1;
-    private String apellido2;
-    private String direccion;
+    private String nombre; // Nombre del cliente. 
+    private String dni; // Dni o nie del cliente. 
+    private String apellido1; // Primer apellido del cliente.  
+    private String apellido2; // Segundo apellido del cliente, si tiene, si no dejar en blanco. 
+    private String direccion; // Domicilio del cliente. 
 
     public Cliente() {
-        //TODO Auto-generated constructor stub
+        // Constructor sin parametros.
     }
+
+    /**
+     * Imprime por pantalla los datos del cliente en formato factura. 
+     */
+    public void verFacturaCliente() {
+        System.out.println("Datos de cliente: ");
+        System.out.println("Nombre completo: " +this.nombre+" "+this.apellido1+" "+this.apellido2);
+        System.out.println("DNI: "+this.dni);
+        System.out.println("Domicilio: "+this.direccion);
+    }
+
+    // Metodos geters y seters.
 
     public String getNombre() {
         return nombre;
@@ -50,12 +61,4 @@ public class Cliente {
         this.direccion = direccion;
     }
 
-    public void verFacturaCliente() {
-        System.out.println("Datos de cliente: ");
-        System.out.println("Nombre completo: " +this.nombre+" "+this.apellido1+" "+this.apellido2);
-        System.out.println("DNI: "+this.dni);
-        System.out.println("Domicilio: "+this.direccion);
-    }
-
-    
 }
