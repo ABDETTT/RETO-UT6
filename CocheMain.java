@@ -25,6 +25,7 @@ public class CocheMain {
 
     // Atributo que se usa para saber si la compra esta realizada, con lo cual termina el progama.
     private static boolean comprado = false;
+    private static boolean submenuinicial=false; // Variable que se usa para volver al submenu. 
 
     // El throws InterruptedException es una exepcion para poder usar el metodo Thread.sleep().
     public static void main(String[] args) throws InterruptedException {
@@ -47,22 +48,23 @@ public class CocheMain {
 
         System.out.println("**** Bienvenido a Coche Amigo ****");
 
+        // Menu inicial, en el que tenemos dos opciones Registrate y Salir. 
         do {
-            System.out.println("1. Registrate ");
-            System.out.println("2. Salir ");
+            System.out.println("1. Registrate "); 
+            System.out.println("2. Salir "); 
             opcion = sc.nextInt();
             sc.nextLine(); // Limpiar el buffer
 
             switch (opcion) {
                 case 1:
                     System.out.println();
-                    meterDatos(sc);
+                    meterDatos(sc); // Metodo para meter los datos del cliente, con lo cual registrarse.  
 
-                    boolean submenuinicial=false;
-
+                    // Submenu, que consta de 3 opciones: Ver coches disponibles, Configurarar un coche nuevo y Volver al menu inicial. 
                     do {
+                        submenuinicial=false;
                         System.out.println("Hola " + cliente1.getNombre() + " elige una opcion: ");
-                        System.out.println("1. Ver coches disponibles. ");
+                        System.out.println("1. Ver coches disponibles. "); 
                         System.out.println("2. Configurar un coche nuevo. ");
                         System.out.println("3. Volver al menu inicial. ");
                         opcion2 = sc.nextInt();
@@ -77,16 +79,17 @@ public class CocheMain {
                                 concesionario1.verCoches(coche3);
                                 int opcion3;
 
+                                // Submenu de Ver coches disponibles. 
                                 do {
                                     System.out.println(cliente1.getNombre() + " que quieres hacer ahora: ");
                                     System.out.println("1. Elegir un coche del stock. ");
                                     System.out.println("2. Volver atras. ");
-                                    opcion3 = sc.nextInt();
+                                    opcion3 = sc.nextInt(); // Opcion seleccionada del submenu de Ver coches disponibles. 
                                     sc.nextLine(); // Limpiar el buffer
 
                                     switch (opcion3) {
                                         case 1:
-                                            elegirCocheStock(sc, submenuinicial);
+                                            elegirCocheStock(sc);
                                             break;
                                         case 2:
                                             System.out.println("Volviendo atras....");
@@ -97,12 +100,11 @@ public class CocheMain {
                                             System.out.println();
                                             break;
                                     }
-                                } while (opcion3 != 2 && comprado != true);
-
+                                } while (opcion3 != 2 && comprado != true && submenuinicial != true);
                                 break;
                             case 2:
                                 System.out.println();
-                                meterDatosCoche(sc, submenuinicial);
+                                meterDatosCoche(sc);
                                 break;
                             case 3:
                                 System.out.println("Volviendo al menu inicial...");
@@ -114,8 +116,7 @@ public class CocheMain {
                                 break;
                         }
 
-                    } while (opcion2 != 3 && comprado != true && submenuinicial!=true);
-
+                    } while (opcion2 != 3 && comprado != true);
                     break;
                 case 2:
                     System.out.println("Adios, vuelva pronto. ");
@@ -134,15 +135,11 @@ public class CocheMain {
 
     }
 
-    public static void datosVenta(Cliente cliente1) {
-
-        System.out.println("El coche ha sido vendido al cliente: ");
-        cliente1.verFacturaCliente();
-
-        System.out.println("El coche eligido es: ");
-
-    }
-
+    
+    /** 
+     * Solicita por pantalla los datos del cliente. 
+     * @param sc
+     */
     public static void meterDatos(Scanner sc) {
         System.out.print("Introduce tu nombre: ");
         String nombre = sc.nextLine();
@@ -167,7 +164,15 @@ public class CocheMain {
         System.out.println();
     }
 
-    private static void meterDatosCoche(Scanner sc, boolean submenuinicial) throws InterruptedException {
+    
+    /** 
+     * Solicita por pantalla los datos del coche.
+     * Muestra por pantalla un menu que te permite pagar ya el coche configurado o volver a configurar otro coche o volver al submenu inicial. 
+     * @param sc
+     * @param submenuinicial
+     * @throws InterruptedException
+     */
+    private static void meterDatosCoche(Scanner sc) throws InterruptedException {
         int opcion = 0;
 
         int id = 4;
@@ -207,10 +212,10 @@ public class CocheMain {
                     pagar(sc, coche0);
                     break;
                 case 2:
-                    meterDatosCoche(sc, submenuinicial);
+                    meterDatosCoche(sc);
                     break;
                 case 3:
-                    submenuinicial=true;
+                    submenuinicial=true; 
                     System.out.println("Volviendo al submenu inicial...");
                     System.out.println();
                     break;
@@ -224,7 +229,14 @@ public class CocheMain {
 
     }
 
-    private static void menuPagar(Scanner sc, boolean submenuinicial, Coche coche){
+    
+    /** 
+     * Muestra por pantalla un menu que te permite pagar ya el coche elegido o volver a elegir otro coche o volver al submenu inicial. 
+     * @param sc
+     * @param submenuinicial
+     * @param coche
+     */
+    private static void menuPagar(Scanner sc, Coche coche){
         int opcion;
 
         do {
@@ -240,7 +252,7 @@ public class CocheMain {
                     pagar(sc,coche);
                     break;
                 case 2:
-                    elegirCocheStock(sc, submenuinicial);
+                    elegirCocheStock(sc);
                     break;
                 case 3:
                     submenuinicial=true;
@@ -257,6 +269,12 @@ public class CocheMain {
     }
 
 
+    
+    /** 
+     * Solicita por pantalla el dinero disponible del cliente, si es igual o mayor que el precio del coche, se aceptara el pago, si no se denegara. 
+     * @param sc
+     * @param coche
+     */
     public static void pagar(Scanner sc, Coche coche) {
         System.out.print("Introduce la cantidad de dinero disponible: ");
         double dineroCliente = sc.nextDouble();
@@ -267,28 +285,40 @@ public class CocheMain {
             System.out.println();
         } else {
             System.out.println();
-            venta1.factura(cliente1, coche);
+            venta1.factura(cliente1, coche); // Mostrar factura de la compra. 
             System.out.println();
             System.out.println(
                             "Coche comprado, gracias por comprar en Coche Amigo. ");
                     System.out.println("Hasta la proxima, adios. ");
             System.out.println();
 
-            comprado = true;
+            comprado = true; // Coche comprado con lo cual este es el fin del programa. 
         }
 
     }
-
-    private static void cocheStock(Scanner sc, Coche coche, boolean submenuinicial) {
+    
+    /** 
+     * Indica el coche elegido.
+     * Ejecuta el metodo menuPagar(Scanner sc, Coche coche). 
+     * @param sc
+     * @param coche
+     * @param submenuinicial
+     */
+    private static void cocheStock(Scanner sc, Coche coche) {
         int opcion5;
         System.out.println();
         System.out.println("Has elegido el siguiente coche: ");
         concesionario1.verCoches(coche);
 
-        menuPagar(sc, submenuinicial, coche);
+        menuPagar(sc, coche);
     }
 
-    private static void elegirCocheStock(Scanner sc, boolean submenuinicial) {
+    /**
+     * Muestra por pantalla un menu para elegir un coche, y ejecuta el metodo cocheStock(Scanner sc, Coche coche). 
+     * @param sc
+     * @param submenuinicial
+     */ 
+    private static void elegirCocheStock(Scanner sc) {
         System.out.println();
         int opcion4;
 
@@ -303,13 +333,13 @@ public class CocheMain {
 
             switch (opcion4) {
                 case 1:
-                    cocheStock(sc, coche1, submenuinicial);
+                    cocheStock(sc, coche1);
                     break;
                 case 2:
-                    cocheStock(sc, coche2, submenuinicial);
+                    cocheStock(sc, coche2);
                     break;
                 case 3:
-                    cocheStock(sc, coche3, submenuinicial);
+                    cocheStock(sc, coche3);
                     break;
                 case 4:
                     System.out.println("Volviendo atras...");
