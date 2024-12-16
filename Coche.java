@@ -100,5 +100,4 @@ public class Coche {
     public void setCaracteristicas(CaracteristicasCoche caracteristicas) {
         this.caracteristicas = caracteristicas;
     }
-
 }

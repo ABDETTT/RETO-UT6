@@ -212,6 +212,7 @@ public class CocheMain {
                     pagar(sc, coche0);
                     break;
                 case 2:
+                    sc.nextLine(); // Limpiar buffer (Corregido). 
                     meterDatosCoche(sc);
                     break;
                 case 3:

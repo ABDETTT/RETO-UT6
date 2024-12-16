@@ -40,7 +40,8 @@ public class CaracteristicasCoche {
     protected void solicitarCaracteristicas(Scanner sc) {
         int opcionSelec; // Posicion del array de la caracteristica seleccionada.
         int n1 = 0; // Contador que se usa dentro del bucle do while del switch case para el mensaje de error. 
-
+        precioC = 0;
+    
         for (int i = 0; i < arrayCaracteristicas.length; i++) {
             System.out.println("\nElige " + arrayCaracteristicas[i]); // Caracteristica a elegir. 
 
@@ -123,6 +124,7 @@ public class CaracteristicasCoche {
         }
 
         setPrecioC(precioCocheCarac); //  Guardar la suma del precio seleccionado en la variable del constructor. 
+        precioCocheCarac = 0; // Resetear el precio (Corregido). 
     }
 
     /**
