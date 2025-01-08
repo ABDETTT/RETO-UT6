@@ -124,7 +124,7 @@ public class CaracteristicasCoche {
         }
 
         setPrecioC(precioCocheCarac); //  Guardar la suma del precio seleccionado en la variable del constructor. 
-        precioCocheCarac = 0; // Resetear el precio (Corregido). 
+        precioCocheCarac = 0; // Resetear el precio (Corregido). d
     }
 
     /**
